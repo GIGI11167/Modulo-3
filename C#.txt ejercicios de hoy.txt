@@ -1,0 +1,254 @@
+ Console.WriteLine("esta es la primera linea");
+Console.WriteLine("esta es la segunda linea");
+
+Console.Write("esta es ");
+Console.Write("la primera linea");
+Console.WriteLine('b');
+Console.WriteLine("36546356");
+Console.WriteLine(123);
+Console.WriteLine(12.5536m);
+Console.WriteLine(12.5536m);
+Console.WriteLine(true);
+Console.WriteLine(false);
+Console.WriteLine("123");
+Console.WriteLine(123);
+
+Console.WriteLine("true");
+Console.WriteLine(false);
+ char h ;
+
+int numeros;
+
+decimal deci;
+
+bool boli ;
+
+string genesis;
+string primernombre;
+primernombre = "Kai";
+Console.WriteLine(primernombre);
+
+string segundoapellido;
+segundoapellido = "Echeto";
+Console.WriteLine(segundoapellido);
+string primernombre = "Kai";
+Console.WriteLine(primernombre);
+string primernombre = "Kai";
+Console.WriteLine(primernombre);
+
+char h = 't' ;
+Console.WriteLine("h");
+
+int numeros = 27;
+Console.WriteLine(numeros);
+
+string genesis;
+
+double numerosdeci;
+
+float nuerosdeci;
+string name = "Bob";
+int messages = 3;
+decimal temperature = 34.4m;
+
+Console.Write("Hello, ");
+Console.Write(name);
+Console.Write("! You have ");
+Console.Write(messages);
+Console.Write(" messages in your inbox. The temperature is ");
+Console.Write(temperature);
+Console.Write(" celsius.");
+
+
+Console.WriteLine("holis\nAdios!");
+Console.WriteLine("holis\tAdios!");
+
+public class HelloWorld
+{
+    public static void Main(string[] args)
+    {
+        Console.WriteLine ();
+        
+        
+        Console.WriteLine("holis\nAdios!");
+Console.WriteLine("holis\tAdios!");
+
+Console.WriteLine("Hola \"dios\"");
+
+Console.WriteLine("Generating invoices for customer \"Contoso Corp\" ... \n");
+Console.WriteLine("Invoice: 1021\t\tComplete!");
+Console.WriteLine("Invoice: 1022\t\tComplete!");
+Console.WriteLine("\nOutput Directory:\t");
+    }
+
+
+otros ejercicios de c#
+
+Crea un programa que pida al usuario la base y la altura de un triángulo, y calcule su área.
+
+using System;
+
+public class HelloWorld
+{
+    public static void Main(string[] args)
+    {
+        Console.WriteLine("ingrese la base del triangulo: ");
+        double baseRectangulo =
+        Convert.ToDouble(Console.ReadLine());
+        
+        Console.WriteLine("ingrese la altura del triangulo: ");
+        double alturarectangulo =
+        Convert.ToDouble(Console.ReadLine());
+        
+        double area = baseRectangulo * alturarectangulo;
+        
+        Console.WriteLine($"El area del rectangulo es:{area}");
+      
+    }
+}
+
+ejercicio 2 2. Conversión de grados Celsius a Fahrenheit:
+ Crea un programa que pida al usuario una temperatura en grados Celsius y la convierta a grados Fahrenheit.
+
+using System;
+
+public class CelsiusAFahrenheit
+{
+    public static void Main(string[] args)
+    {
+       
+        Console.Write("Ingrese la temperatura en grados Celsius: ");
+        string inputCelsius = Console.ReadLine();
+
+        if (double.TryParse(inputCelsius, out double celsius))
+        {
+            double fahrenheit = (celsius * 9 / 5) + 32;
+
+            
+            Console.WriteLine($"{celsius} grados Celsius son equivalentes a {fahrenheit} grados Fahrenheit.");
+        }
+        else
+        {
+          
+            Console.WriteLine("Entrada inválida. Por favor, ingrese un valor numérico para la temperatura.");
+        }
+
+       
+    }
+}
+
+
+ejercicio 3
+
+using System;
+
+public class HelloWorld
+{
+    public static void Main(string[] args)
+    {
+        Console.WriteLine("ingrese primer numero: ");
+        double numUno =
+        Convert.ToDouble(Console.ReadLine());
+        
+        Console.WriteLine("ingrese segundo numero: ");
+        double numDos  =
+        Convert.ToDouble(Console.ReadLine());
+        
+         Console.WriteLine("ingrese el tercer numero: ");
+        double numTre  =
+        Convert.ToDouble(Console.ReadLine());
+        
+        double total = (numUno + numDos +numTre) / 3;
+        Console.WriteLine($"El promedio es:{total}");
+      
+    }
+}
+
+ejercicio 4 dividiendo
+using System;
+
+public class CalculoResto
+{
+    public static void Main(string[] args)
+    {
+        
+        Console.Write("Ingrese el dividendo: ");
+        string inputDividendo = Console.ReadLine();
+
+        if (!int.TryParse(inputDividendo, out int dividendo))
+        {
+            Console.WriteLine("Entrada inválida para el dividendo. Por favor, ingrese un número entero.");
+            return; 
+        }
+
+        Console.Write("Ingrese el divisor: ");
+        string inputDivisor = Console.ReadLine();
+        if (!int.TryParse(inputDivisor, out int divisor))
+        {
+            Console.WriteLine("Entrada inválida para el divisor. Por favor, ingrese un número entero.");
+            return; 
+        }
+
+        if (divisor == 0)
+        {
+            Console.WriteLine("Error: El divisor no puede ser cero.");
+        }
+        else
+        {
+        
+            int resto = dividendo % divisor;
+            Console.WriteLine($"El resto de la división de {dividendo} entre {divisor} es: {resto}");
+        }
+
+        
+    }
+}
+
+
+
+ejercicio 5 . Suma de dos números:
+ Crea un programa que sume dos numeros.
+
+using System;
+
+public class HelloWorld
+{
+    public static void Main(string[] args)
+    {
+        Console.WriteLine("ingrese primer numero: ");
+        double numUno =
+        Convert.ToDouble(Console.ReadLine());
+        
+        Console.WriteLine("ingrese segundo numero: ");
+        double numDos  =
+        Convert.ToDouble(Console.ReadLine());
+        
+        double total = (numUno + numDos);
+        Console.WriteLine($"la suma es:{total}");
+      
+    }
+}
+
+
+ejercicio 6 Resta de dos números:
+   * Crea un programa que reste dos números.
+
+using System;
+
+public class HelloWorld
+{
+    public static void Main(string[] args)
+    {
+        Console.WriteLine("ingrese primer numero: ");
+        double numUno =
+        Convert.ToDouble(Console.ReadLine());
+        
+        Console.WriteLine("ingrese segundo numero: ");
+        double numDos  =
+        Convert.ToDouble(Console.ReadLine());
+        
+        double total = (numUno - numDos);
+        Console.WriteLine($"la resta es:{total}");
+      
+    }
+}
