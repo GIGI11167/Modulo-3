@@ -1,0 +1,416 @@
+ejercicio 1  Calculadora de estadísticas
+
+#include <iostream>
+#include <vector>
+#include <limits>
+
+int main() {
+    std::vector<double> numeros;
+    double num;
+
+    std::cout << "Ingresa una lista de números (termina con -1): ";
+    while (std::cin >> num && num != -1) {
+        numeros.push_back(num);
+    }
+
+    double suma = 0, maximo = std::numeric_limits<double>::lowest(), minimo = std::numeric_limits<double>::max();
+    for (double n : numeros) {
+        suma += n;
+        if (n > maximo) maximo = n;
+        if (n < minimo) minimo = n;
+    }
+
+    double promedio = numeros.empty() ? 0 : suma / numeros.size();
+
+    std::cout << "Mínimo: " << minimo << ", Máximo: " << maximo << ", Suma: " << suma << ", Promedio: " << promedio << std::endl;
+
+    return 0;
+}
+
+ejercicio 2 juego de adivinanza con intentos limitados
+
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+
+int main() {
+    std::srand(std::time(0));
+    int numero_secreto = std::rand() % 100 + 1;
+    int intento;
+    const int max_intentos = 5;
+
+    for (int i = 0; i < max_intentos; ++i) {
+        std::cout << "Adivina el número entre 1 y 100: ";
+        std::cin >> intento;
+
+        if (intento < numero_secreto) {
+            std::cout << "Demasiado bajo." << std::endl;
+        } else if (intento > numero_secreto) {
+            std::cout << "Demasiado alto." << std::endl;
+        } else {
+            std::cout << "¡Correcto!" << std::endl;
+            return 0;
+        }
+    }
+    std::cout << "Lo siento, el número era " << numero_secreto << "." << std::endl;
+    return 0;
+}
+
+ejercicio 3 Factorial con validación
+
+#include <iostream>
+
+int main() {
+    int n;
+    std::cout << "Ingresa un número positivo: ";
+    std::cin >> n;
+
+    if (n < 0) {
+        std::cout << "El número debe ser positivo." << std::endl;
+        return 1;
+    }
+
+    long long resultado = 1;
+    for (int i = 1; i <= n; ++i) {
+        resultado *= i;
+    }
+
+    std::cout << "El factorial de " << n << " es " << resultado << "." << std::endl;
+
+    return 0;
+}
+
+
+ejercicio 4 Número perfecto
+
+#include <iostream>
+
+int main() {
+    int n;
+    std::cout << "Ingresa un número: ";
+    std::cin >> n;
+
+    int suma_divisores = 0;
+    for (int i = 1; i < n; ++i) {
+        if (n % i == 0) {
+            suma_divisores += i;
+        }
+    }
+
+    if (suma_divisores == n) {
+        std::cout << n << " es un número perfecto." << std::endl;
+    } else {
+        std::cout << n << " no es un número perfecto." << std::endl;
+    }
+
+    return 0;
+}
+
+ejercicio 5
+
+#include <iostream>
+#include <bitset>
+#include <sstream>
+
+std::string to_hex(int num) {
+    std::stringstream ss;
+    ss << std::hex << num;
+    return ss.str();
+}
+
+int main() {
+    int numero;
+    char opcion;
+
+    std::cout << "Ingresa un número decimal: ";
+    std::cin >> numero;
+
+    std::cout << "Elige 'b' para binario o 'h' para hexadecimal: ";
+    std::cin >> opcion;
+
+    if (opcion == 'b') {
+        std::cout << "Binario: " << std::bitset<32>(numero).to_string().substr(32 - sizeof(int) * 8) << std::endl;
+    } else if (opcion == 'h') {
+        std::cout << "Hexadecimal: " << to_hex(numero) << std::endl;
+    } else {
+        std::cout << "Opción no válida." << std::endl;
+    }
+
+    return 0;
+}
+
+ejercficio 6
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+int main() {
+    std::vector<int> numeros;
+    int num;
+
+    std::cout << "Ingresa una lista de números (termina con -1): ";
+    while (std::cin >> num && num != -1) {
+        numeros.push_back(num);
+    }
+
+    // Ordenar en orden ascendente
+    std::sort(numeros.begin(), numeros.end());
+    
+    std::cout << "Orden ascendente: ";
+    for (int n : numeros) {
+        std::cout << n << " ";
+    }
+    
+    // Ordenar en orden descendente
+    std::sort(numeros.rbegin(), numeros.rend());
+
+ejercicio 7 tabla de multiplicar
+
+#include <iostream>
+
+int main() {
+    int numero;
+    
+    std::cout << "Ingresa un número para generar su tabla de multiplicar: ";
+    std::cin >> numero;
+
+    for (int i = 1; i <= 10; ++i) {
+        std::cout << numero << " x " << i << " = " << numero * i << std::endl;
+    }
+
+    return 0;
+}
+
+ejercicio 9
+
+#include <iostream>
+#include <vector>
+
+bool es_primo(int num) {
+    if (num <= 1) return false;
+    
+    for (int i = 2; i * i <= num; ++i) {
+        if (num % i == 0) return false;
+    }
+    
+    return true;
+}
+
+int main() {
+    int inicio, fin;
+
+    std::cout << "Ingresa el inicio del rango: ";
+    std::cin >> inicio;
+
+    std::cout << "Ingresa el fin del rango: ";
+    std::cin >> fin;
+
+    std::vector<int> primos;
+
+    for (int num = inicio; num <= fin; ++num) {
+        if (es_primo(num)) {
+            primos.push_back(num);
+        }
+    }
+
+    std::cout << "Números primos: ";
+    for (int p : primos) {
+        std::cout << p << " ";
+    }
+    
+    std::cout << std::endl;
+
+    return 0;
+}
+
+
+ejercicio 10
+
+#include <iostream>
+
+int main() {
+    int tamaño;
+
+    std::cout << "Ingresa el tamaño del triángulo: ";
+    std::cin >> tamaño;
+
+    for (int i = 1; i <= tamaño; ++i) {
+        for (int j = 1; j <= i; ++j) {
+            std::cout << "*";
+        }
+        std::cout << std::endl;
+    }
+
+    return 0;
+}
+
+ejercicio 11 Juego de piedra, papel o tijeras
+
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+
+int main() {
+   const char* opciones[] = {"piedra", "papel", "tijeras"};  
+   
+   // Inicializar generador aleatorio.
+   srand(time(0));  
+
+   // Elección del usuario.
+   int eleccion_usuario;  
+   cout<<"Elige:\n0 - Piedra\n1 - Papel\n2 - Tijeras\nTu elección: ";  
+   cin>>eleccion_usuario;  
+
+   // Elección de la computadora.
+   int eleccion_computadora = rand() % 3;  
+
+   cout<<"Computadora eligió: "<<opciones[eleccion_computadora]<<endl;  
+
+   // Determinar el resultado.
+   if(eleccion_usuario==eleccion_computadora){
+       cout<<"Empate!"<<endl;  
+       
+   }else if((eleccion_usuario==0 && eleccion_computadora==2) || 
+             (eleccion_usuario==1 && eleccion_computadora==0) || 
+             (eleccion_usuario==2 && eleccion_computadora==1)){
+       cout<<"¡Ganaste!"<<endl;  
+       
+   }else{
+       cout<<"Perdiste."<<endl;  
+       
+   }
+
+   return 0; 
+}
+
+ejercicio 12
+
+#include <iostream>
+#include <vector>
+#include <limits>
+
+int main() {
+   int n, calificacion;  
+   
+   // Ingreso del número de calificaciones.
+   cout<<"¿Cuántas calificaciones deseas ingresar? ";  
+   cin>>n;  
+
+   vector<int> calificaciones(n);  
+
+   // Ingreso de calificaciones.
+   for(int i=0;i<n;i++){
+       cout<<"Ingresa la calificación "<<(i+1)<<": ";  
+       cin>>calificacion;  
+       calificaciones[i]=calificacion;  
+       
+   }
+
+   // Calcular promedio, máxima y mínima.
+   double suma=0.0, max_calif=std :: numeric_limits<double>::lowest(), min_calif=std :: numeric_limits<double>::max();  
+   
+   for(int calif : calificaciones){
+       suma+=calif;  
+       if(calif>max_calif){max_calif=calif;}  
+       if(calif<min_calif){min_calif=calif;}  
+       
+   }
+
+   double promedio=suma/n;  
+   
+   // Contar aprobados.
+   int aprobados=0;  
+   
+   for(int calif : calificaciones){
+       if(calif>=10){aprobados++;}  
+       
+   }
+
+   cout<<"Promedio: "<<promedio<<", Máxima: "<<max_calif<<", Mínima: "<<min_calif<<", Aprobados: "<<aprobados<<endl;
+
+return 0; 
+}
+
+ejercicio 13
+
+#include <iostream>
+
+int main() {
+   int n;  
+   double r, a1;
+
+   // Ingreso de términos, razón y primer término.
+   cout<<"Ingresa el número de términos: ";  
+   cin>>n;  
+   
+   cout<<"Ingresa la razón: ";  
+   cin>>r;  
+
+   cout<<"Ingresa el primer término: ";  
+   cin>>a1;
+
+   // Calcular suma.
+   double suma=(r!=1)?(a1*(1-pow(r,n))/(1-r)):a1*n;  
+
+   cout<<"La suma de la serie geométrica es: "<<suma<<endl;
+
+return 0; 
+}
+
+ejercicio 14
+
+#include <iostream>
+
+int main() {
+   double base, resultado=1.0;  
+   
+   int exponente;
+
+   // Ingreso de base y exponente.
+   cout<<"Ingresa la base: ";  
+   cin>>base;
+
+   cout<<"Ingresa el exponente: ";  
+   cin>>exponente;
+   
+
+// Calcular potencia usando bucle.
+for(int i=0;i<abs(exponente);i++){
+      resultado*=base;  
+      
+} 
+
+// Manejar exponente negativo.
+if(exponente<0){resultado=1/resultado;}  
+
+cout<<base<<"^"<<exponente<<" = "<<resultado<<endl;
+
+return 0; 
+}
+
+ejercicio 15
+
+#include <iostream>
+#include <sstream>
+
+int main() {
+   std :: string frase; 
+
+   // Ingreso de frase.
+   cout<<"Ingresa una frase: ";  
+   getline(std :: cin, frase);  
+
+   // Contar palabras.
+   istringstream iss(frase);  
+   int contador=0;  
+   string palabra;  
+   
+   while(iss>>palabra){
+       contador++;  
+   }
+
+   cout<<"Número de palabras: "<<contador<<endl;  
+
+   return 0; 
+}
